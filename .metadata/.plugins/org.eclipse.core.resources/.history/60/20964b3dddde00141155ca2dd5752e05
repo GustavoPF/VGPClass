@@ -52,16 +52,12 @@ public class Dragon extends DirectedCircle {
 		if (hasCollidedWith(terrain)){
 			
 			Line l = hasCollidedWith(terrain,"l");
-			
-			if (l != null){
 
-				double d = l.distanceTo(x, y);
+			double d = l.distanceTo(x, y);
 
-				double dist = r - d +5;
+			double dist = r - d +5;
 
-				moveBy((int)(dist * l.xN), (int)(dist * l.yN));
-
-			}
+			moveBy((int)(dist * l.xN), (int)(dist * l.yN));
 			
 		}
 	}

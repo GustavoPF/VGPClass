@@ -55,7 +55,6 @@ public class Framework extends Applet implements Runnable, KeyListener, MouseLis
 	}
 	
 	public void load(Level level, Graphics g){
-		
 		level.draw(g);
 	}
 

@@ -25,7 +25,7 @@ public class Terrain {
 			
 			startpoint = endpoint;
 			
-			System.out.println(startpoint.x*100/length+"% completed");
+			System.out.println(startpoint.x*100/length+"completed");
 			
 		} else { 
 			

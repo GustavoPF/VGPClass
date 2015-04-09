@@ -11,7 +11,7 @@ public class Framework extends Applet implements Runnable, KeyListener, MouseLis
 	
 	Thread t = new Thread(this);
 	
-	Level currentLevel;
+	Dragon dragon = new Dragon();
 
 	boolean UP_pressed = false;
 	boolean DN_pressed = false;
@@ -35,8 +35,6 @@ public class Framework extends Applet implements Runnable, KeyListener, MouseLis
 	@Override
 	public void run() {
 		
-		currentLevel = new Level("1");
-		
 		while (true) {
 
 			repaint();
@@ -50,12 +48,11 @@ public class Framework extends Applet implements Runnable, KeyListener, MouseLis
 
 	public void paint(Graphics g) {
 		
-		load(currentLevel, g);
+		load(new Level("1"), g);
 
 	}
 	
 	public void load(Level level, Graphics g){
-		
 		level.draw(g);
 	}
 

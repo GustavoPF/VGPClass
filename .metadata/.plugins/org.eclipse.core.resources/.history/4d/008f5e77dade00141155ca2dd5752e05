@@ -1,0 +1,28 @@
+
+public class Dragon extends DirectedCircle {
+
+	public Dragon() {
+		super(100, 100, 15);
+		// TODO Auto-generated constructor stub
+	}
+	
+	public boolean hasCollidedWith(Line line){
+		
+		return line.distanceTo(x, y) < r && this.x>line.x1 && this.x<line.x2;
+
+	}
+	
+	public void handleCollisionWith(Terrain terrain)
+	{
+		if (hasCollidedWith(terrain))
+		{
+			for(int i = 0, terrain.)
+			double d = line.distanceTo(x, y);
+
+					double dist = r - d +5;
+
+					moveBy((int)(dist * line.xN), (int)(dist * line.yN));
+		}
+	}
+
+}
