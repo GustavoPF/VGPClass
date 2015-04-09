@@ -1,0 +1,40 @@
+import java.awt.Graphics;
+import java.awt.Point;
+
+
+public class Terrain {
+	
+	int length;
+	
+	Point startpoint = new Point(-10,600);
+	
+	Line[] surface = new Line[50];
+	int end = 0;
+	
+	public Terrain (int endpoint){
+		
+		surface[0] = new Line(startpoint, new Point(length,endpoint));
+		end++;
+		
+	}
+	
+	public void addLine(Point endpoint){
+		
+		while (startpoint.x < length){
+			
+			surface[surface.length - 1] = new Line (startpoint, endpoint);
+			
+		}
+		
+	}
+	
+	public void draw (Graphics g){
+		
+		for (int i = 0; i < surface.length; i++){
+			
+			surface[i].draw(g);
+			
+		}
+		
+	}
+}

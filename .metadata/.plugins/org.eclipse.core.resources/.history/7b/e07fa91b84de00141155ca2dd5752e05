@@ -1,0 +1,9 @@
+
+public class Level {
+	
+	Terrain terrain;
+	
+	//worm velocity
+	//terrain
+	//end of level
+}

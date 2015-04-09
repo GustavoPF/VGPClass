@@ -1,0 +1,25 @@
+import java.applet.Applet;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
+
+
+public	class		Framework
+
+		extends		Applet
+		
+		implements	Runnable,
+					KeyListener,
+					MouseListener,
+					MouseMotionListener
+{
+	Thread t = new Thread(this);
+
+	boolean UP_pressed = false;
+	boolean DN_pressed = false;
+	boolean LT_pressed = false;
+	boolean RT_pressed = false;
+	boolean A_pressed  = false;
+	boolean D_pressed  = false;
+
+}

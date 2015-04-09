@@ -1,0 +1,70 @@
+import java.awt.Point;
+
+
+public class Level {
+	
+	Terrain terrain = new Terrain(700);
+	
+	public Level(String levelName){
+		
+		if (levelName == "1"){
+
+			terrain.addLine(new Point(150, 400));
+			terrain.addLine(new Point(250, 600));
+			terrain.addLine(new Point(350, 500));
+			terrain.addLine(new Point(450, 400));
+			terrain.addLine(new Point(550, 300));
+			terrain.addLine(new Point(650, 600));
+			terrain.addLine(new Point(750, 700));
+		}
+		
+		if (levelName == "2"){
+
+			terrain.addLine(new Point(150, 400));
+			terrain.addLine(new Point(250, 600));
+			terrain.addLine(new Point(350, 500));
+			terrain.addLine(new Point(450, 400));
+			terrain.addLine(new Point(550, 300));
+			terrain.addLine(new Point(650, 600));
+			terrain.addLine(new Point(750, 700));
+		}
+		
+		if (levelName == "1"){
+
+			terrain.addLine(new Point(150, 400));
+			terrain.addLine(new Point(250, 600));
+			terrain.addLine(new Point(350, 500));
+			terrain.addLine(new Point(450, 400));
+			terrain.addLine(new Point(550, 300));
+			terrain.addLine(new Point(650, 600));
+			terrain.addLine(new Point(750, 700));
+		}
+		
+		if (levelName == "3"){
+
+			terrain.addLine(new Point(150, 400));
+			terrain.addLine(new Point(250, 600));
+			terrain.addLine(new Point(350, 500));
+			terrain.addLine(new Point(450, 400));
+			terrain.addLine(new Point(550, 300));
+			terrain.addLine(new Point(650, 600));
+			terrain.addLine(new Point(750, 700));
+		}
+		
+		if (levelName == "3"){
+
+			terrain.addLine(new Point(150, 400));
+			terrain.addLine(new Point(250, 600));
+			terrain.addLine(new Point(350, 500));
+			terrain.addLine(new Point(450, 400));
+			terrain.addLine(new Point(550, 300));
+			terrain.addLine(new Point(650, 600));
+			terrain.addLine(new Point(750, 700));
+		}
+	
+	}
+	
+	//worm velocity
+	//terrain
+	//end of level
+}

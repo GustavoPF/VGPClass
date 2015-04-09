@@ -1,0 +1,136 @@
+import java.awt.*;
+
+public class Circle
+{
+   int x;
+   int y;
+
+   int r;
+
+
+   int angle = 0;
+
+
+   public Circle(int x, int y, int r)
+   {
+      this.x = x;
+      this.y = y;
+
+      this.r = r;
+   }
+
+
+   public void draw(Graphics g)
+   {
+      double cosA = Lookup.cos[angle];
+
+      double sinA = Lookup.sin[angle];
+
+
+      g.drawOval(x-r, y-r, 2*r, 2*r);
+
+      g.drawLine(x, y, (int)(x + r * cosA), (int)(y + r * sinA));
+   }
+
+
+   public boolean hasCollidedWith(Circle c)
+   {
+      int d2 = (x - c.x) * (x - c.x) + (y - c.y) * (y - c.y);
+
+      int r2 = (r + c.r) * (r + c.r);
+
+      return d2 < r2;
+   }
+
+   public boolean hasCollidedWith(Line line)
+   {
+      return line.distanceTo(x, y) < r;
+   }
+
+   public boolean isInFrontOf(Circle c)
+   {
+      double xc = -Lookup.sin[c.angle];
+      double yc = Lookup.cos[c.angle];
+
+      return (x - c.x) * yc - (y - c.y) * xc > 60;
+   }
+
+   public boolean isInBackOf(Circle c)
+   {
+      double xc = -Lookup.sin[c.angle];
+      double yc = Lookup.cos[c.angle];
+
+      return (x - c.x) * yc - (y - c.y) * xc < -60;
+   }
+
+   public boolean isToLeftOf(Circle c)
+   {
+      double xc = Lookup.cos[c.angle];
+      double yc = Lookup.sin[c.angle];
+
+      return (x - c.x) * yc - (y - c.y) * xc > 10;
+   }
+
+   public boolean isToRightOf(Circle c)
+   {
+      double xc = Lookup.cos[c.angle];
+      double yc = Lookup.sin[c.angle];
+
+      return (x - c.x) * yc - (y - c.y) * xc < -10;
+   }
+
+
+   
+   public void moveForwardBy(int dist)
+   {
+      x += (int)(dist * Math.cos(angle * Math.PI / 180));
+
+      y += (int)(dist * Math.sin(angle * Math.PI / 180));
+
+   }
+
+   public void moveBackwardBy(int dist)
+   {
+      x -= (int)(dist * Math.cos(angle * Math.PI / 180));
+
+      y -= (int)(dist * Math.sin(angle * Math.PI / 180));
+
+   }
+
+
+   public void moveBy(int dx, int dy)
+   {
+      x += dx;
+
+      y += dy;
+   }
+
+
+   public void rotateRightBy(int degrees)
+   {
+      angle += degrees;
+
+      if(angle >= 360) angle -= 360;
+   }
+
+   public void rotateLeftBy(int degrees)
+   {
+      angle -= degrees;
+
+      if(angle < 0)  angle += 360;
+   }
+
+
+   public void handleCollisionWith(Line line)
+   {
+         if (hasCollidedWith(line))
+         {
+            double d = line.distanceTo(x, y);
+
+            double dist = r - d +5;
+
+            moveBy((int)(dist * line.xN), (int)(dist * line.yN));
+         }
+   }
+
+}
