@@ -8,7 +8,7 @@ public class Terrain {
 	
 	Point startpoint = new Point(-10,600);
 	
-	Line[] surface = new Line[50];
+	Line[] surface = new Line[5000];
 	int end = 0;
 	
 	public Terrain (int length){

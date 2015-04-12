@@ -1,0 +1,89 @@
+import java.awt.Graphics;
+import java.awt.Point;
+
+
+public class Level {
+	
+	Terrain terrain = new Terrain(700);
+	int gravity = 0;
+	
+	Dragon dragon = new Dragon();
+	
+	boolean isActive = true;
+	
+	public Level(String levelName){
+		
+		if (levelName == "1"){
+			
+			gravity = 5;
+
+			terrain.addLine(new Point(150, 400));
+			terrain.addLine(new Point(250, 600));
+			terrain.addLine(new Point(350, 500));
+			terrain.addLine(new Point(450, 400));
+			terrain.addLine(new Point(550, 300));
+			terrain.addLine(new Point(650, 600));
+			terrain.addLine(new Point(750, 700));
+		}
+		
+		if (levelName == "2"){
+
+			terrain.addLine(new Point(150, 400));
+			terrain.addLine(new Point(250, 600));
+			terrain.addLine(new Point(350, 500));
+			terrain.addLine(new Point(450, 400));
+			terrain.addLine(new Point(550, 300));
+			terrain.addLine(new Point(650, 600));
+			terrain.addLine(new Point(750, 700));
+		}
+		
+		if (levelName == "1"){
+
+			terrain.addLine(new Point(150, 400));
+			terrain.addLine(new Point(250, 600));
+			terrain.addLine(new Point(350, 500));
+			terrain.addLine(new Point(450, 400));
+			terrain.addLine(new Point(550, 300));
+			terrain.addLine(new Point(650, 600));
+			terrain.addLine(new Point(750, 700));
+		}
+		
+		if (levelName == "3"){
+
+			terrain.addLine(new Point(150, 400));
+			terrain.addLine(new Point(250, 600));
+			terrain.addLine(new Point(350, 500));
+			terrain.addLine(new Point(450, 400));
+			terrain.addLine(new Point(550, 300));
+			terrain.addLine(new Point(650, 600));
+			terrain.addLine(new Point(750, 700));
+		}
+		
+		if (levelName == "3"){
+
+			terrain.addLine(new Point(150, 400));
+			terrain.addLine(new Point(250, 600));
+			terrain.addLine(new Point(350, 500));
+			terrain.addLine(new Point(450, 400));
+			terrain.addLine(new Point(550, 300));
+			terrain.addLine(new Point(650, 600));
+			terrain.addLine(new Point(750, 700));
+		}
+		
+		while(isActive){
+			dragon.moveForwardBy(gravity);
+			dragon.handleCollisionWith(terrain);
+		}
+	
+	}
+	
+	public void draw(Graphics g){
+		
+		terrain.draw(g);
+		dragon.draw(g);
+	}
+	
+	//worm velocity
+	//terrain
+	//end of level
+}

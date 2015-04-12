@@ -7,8 +7,8 @@ public class Dragon extends DirectedCircle {
 	}
 	
 	public boolean hasCollidedWith(Line line){
-		
-		return line.distanceTo(x, y) < r && this.x>line.x1 && this.x<line.x2;
+				
+		return line.distanceTo(x, y) < r && this.x>line.x1 && this.x<line.x2 && this.y> line.y2;
 
 	}
 	
@@ -25,9 +25,11 @@ public class Dragon extends DirectedCircle {
 	
 	private Line hasCollidedWith(Terrain terrain, String l) {
 		
-		for (int i = terrain.surface.length; i > 0; i-- ){
+		for (int i = terrain.end; i > 0; i-- ){
 			
-			 if (hasCollidedWith(terrain.surface[i])) return terrain.surface[i];
+			System.out.println("I am here " + this.x + "' "+ this.y);
+			
+			if (hasCollidedWith(terrain.surface[i])) return terrain.surface[i];
 			
 		}
 		
