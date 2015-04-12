@@ -96,19 +96,8 @@ public class Level {
 		}
 		
 		while(isActive){
-			
-			if (dragon.x<1500){
-				
-				dragon.moveBy(0, gravity);
-				
-				dragon.handleCollisionWith(terrain);
-				
-			}else{ //level has ended
-				
-				dragon = new Dragon();
-				
-			}
-
+			dragon.moveForwardBy(gravity);
+			dragon.handleCollisionWith(terrain);
 		}
 	
 	}

@@ -36,11 +36,23 @@ public void init() {
 		
 		for(int i = 0; i < 1500; i+=25){
 			
-			terrain.addLine(new Point(i,450+(int)(100*Lookup.sin[i%360])));
+			terrain.addLine(new Point(i,450+(int)(100*Lookup.sin[i%360]-100)));
 
 		}
 		
 		while (true) {
+			
+			if (dragon.x<1500){
+				
+				dragon.moveBy(1, 5);
+				
+				dragon.handleCollisionWith(terrain);
+				
+			}else{ 
+				
+				dragon = new Dragon();
+				
+			}
 
 			repaint();
 

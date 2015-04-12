@@ -41,6 +41,18 @@ public void init() {
 		}
 		
 		while (true) {
+			
+			if (dragon.x<1500){
+				
+				dragon.moveBy(0, 1);
+				
+				dragon.handleCollisionWith(terrain);
+				
+			}else{ 
+				
+				dragon = new Dragon();
+				
+			}
 
 			repaint();
 

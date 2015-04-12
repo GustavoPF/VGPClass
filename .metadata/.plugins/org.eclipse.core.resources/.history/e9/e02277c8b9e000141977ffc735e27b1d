@@ -129,7 +129,7 @@ public class DirectedCircle
 
 			double dist = r - d +5;
 
-			moveBy((int)(dist * line.xN) + 2, (int)(dist * line.yN));
+			moveBy((int)(dist * line.xN), (int)(dist * line.yN));
 		}
 	}
 

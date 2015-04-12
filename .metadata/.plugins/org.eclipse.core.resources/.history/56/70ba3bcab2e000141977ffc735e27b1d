@@ -37,7 +37,6 @@ public class Dragon extends DirectedCircle {
 		collidingSurface = null;
 		
 		return false;
-		
 	}
 	
 /*	private Line lineHasCollidedWith(Terrain terrain) {
@@ -70,15 +69,15 @@ public class Dragon extends DirectedCircle {
 	{
 		if (hasCollidedWith(terrain)){
 			
-			//Line l = lineHasCollidedWith(terrain);
+			Line l = collidingSurface; //lineHasCollidedWith(terrain);
 			
-			if (collidingSurface != null){
+			if (l != null){
 
-				double d = collidingSurface.distanceTo(x, y);
+				double d = l.distanceTo(x, y);
 
 				double dist = r - d +5;
 
-				moveBy((int)(dist * collidingSurface.xN), (int)(dist * collidingSurface.yN));
+				moveBy((int)(dist * l.xN), (int)(dist * l.yN));
 
 			}
 			
