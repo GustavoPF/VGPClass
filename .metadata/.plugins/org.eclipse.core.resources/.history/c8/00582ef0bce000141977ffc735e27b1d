@@ -77,9 +77,9 @@ public class Dragon extends DirectedCircle {
 
 				double d = collidingSurface.distanceTo(x, y);
 
-				double dist = r - d;
+				double dist = r - d +5;
 
-				moveBy((int)(dist * collidingSurface.xN + 3), (int)(dist * collidingSurface.yN) - 10);
+				moveBy((int)(3 * dist * collidingSurface.xN), (int)(dist * collidingSurface.yN) - 10);
 
 			}
 			

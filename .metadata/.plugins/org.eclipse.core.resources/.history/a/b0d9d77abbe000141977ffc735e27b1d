@@ -42,9 +42,9 @@ public void init() {
 		
 		while (true) {
 			
-			if (dragon.x<1500 && dragon.y < 900){
+			if (dragon.x<1500){
 				
-				dragon.moveBy(1, 2);
+				dragon.moveBy(1, 1);
 				
 				dragon.handleCollisionWith(terrain);
 				

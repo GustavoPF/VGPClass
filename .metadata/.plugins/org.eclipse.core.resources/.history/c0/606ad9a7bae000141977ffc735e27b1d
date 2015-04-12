@@ -40,7 +40,14 @@ public class Dragon extends DirectedCircle {
 		
 	}
 	
-
+	public void handleCollisionWith(Line line)
+	{
+		super.handleCollisionWith(line);
+		
+		this.x += 2;
+		
+	}
+	
 /*	private Line lineHasCollidedWith(Terrain terrain) {
 		
 		for (int i = terrain.end; i > 0; i-- ){
@@ -77,9 +84,9 @@ public class Dragon extends DirectedCircle {
 
 				double d = collidingSurface.distanceTo(x, y);
 
-				double dist = r - d;
+				double dist = r - d +5;
 
-				moveBy((int)(dist * collidingSurface.xN + 3), (int)(dist * collidingSurface.yN) - 10);
+				moveBy((int)(dist * collidingSurface.xN), (int)(dist * collidingSurface.yN));
 
 			}
 			
