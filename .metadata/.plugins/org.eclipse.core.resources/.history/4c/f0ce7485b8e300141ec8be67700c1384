@@ -1,0 +1,91 @@
+
+public class Dragon extends DirectedCircle {
+
+	public Dragon() {
+		super(100, 100, 15);
+		// TODO Auto-generated constructor stub
+	}
+	
+	Line collidingSurface;
+	
+/*	public boolean hasCollidedWith(Line line){
+				
+		return line.distanceTo(x, y) < r && this.x>line.x1 && this.x<line.x2 && this.y> line.y2;
+
+	}
+*/	
+	
+	private boolean hasCollidedWith(Terrain terrain) {
+		
+		System.out.println("Dragon at " + this.x + ", "+ this.y);
+		
+		for (int i = 0; i < terrain.end; i++ ){
+			
+			if (terrain.surface[i].x1 < this.x && terrain.surface[i].x2 > this.x /*&& this.y > terrain.surface[i].x2*/){
+				
+				if(hasCollidedWith(terrain.surface[i])){
+					
+					collidingSurface = terrain.surface[i];
+					
+					return true;
+				}
+
+			}
+						
+		}
+		
+		collidingSurface = null;
+		
+		return false;
+		
+	}
+	
+
+/*	private Line lineHasCollidedWith(Terrain terrain) {
+		
+		for (int i = terrain.end; i > 0; i-- ){
+			
+			//System.out.println("I am here " + this.x + "' "+ this.y);
+			
+			if (hasCollidedWith(terrain.surface[i])) return terrain.surface[i];
+			
+		}
+		
+		return null;
+	}
+*/	
+/*	public void handleCollisionWith(Terrain terrain)
+	{
+		if (hasCollidedWith(terrain))
+		{
+			//for(int i = 0, terrain.)
+			double d = line.distanceTo(x, y);
+
+			double dist = r - d +5;
+
+			moveBy((int)(dist * line.xN), (int)(dist * line.yN));
+		}
+	}*/
+	
+	public void handleCollisionWith(Terrain terrain)
+	{
+		if (hasCollidedWith(terrain)){
+			
+			//Line l = lineHasCollidedWith(terrain);
+			
+			if (collidingSurface != null){
+
+				double d = collidingSurface.distanceTo(x, y);
+
+				double dist = r - d;
+
+				moveBy((int)(dist * collidingSurface.xN - 3), (int)(dist * collidingSurface.yN) - 150);
+
+			}
+			
+		}
+	}
+
+	
+
+}

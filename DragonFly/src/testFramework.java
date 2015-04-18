@@ -17,13 +17,17 @@ public class testFramework extends Applet implements Runnable, KeyListener, Mous
 	Dragon dragon = new Dragon();
 
 	
-public void init() {
+	public void init() {
+		
+		this.setSize(1800, 900);
+
 		
 		addKeyListener(this);
 		addMouseListener(this);
 		addMouseMotionListener(this);
 
 		requestFocus();
+		
 		
 		t.start();
 
@@ -34,7 +38,7 @@ public void init() {
 		
 		terrain = new Terrain(1500);
 		
-		for(int i = 0; i < 1500; i+=25){
+		for(int i = 0; i < 1500; i+=20){
 			
 			terrain.addLine(new Point(i,450+(int)(100*Lookup.sin[i%360])));
 
@@ -44,7 +48,7 @@ public void init() {
 			
 			if (dragon.x<1500 && dragon.y < 900){
 				
-				dragon.moveBy(1, 2);
+				dragon.moveBy(0, 2);
 				
 				dragon.handleCollisionWith(terrain);
 				
@@ -62,7 +66,7 @@ public void init() {
 	}
 
 	public void paint(Graphics g) {
-		
+						
 		terrain.draw(g);
 		dragon.draw(g);
 
