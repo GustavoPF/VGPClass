@@ -38,7 +38,7 @@ public class      GameFramework
 
 
 
-   AARect r1 = new AARect(10, 10, 100, 200);
+/*   AARect r1 = new AARect(10, 10, 100, 200);
 
 
    Tank tank = new Tank(500, 350, 0);
@@ -48,7 +48,7 @@ public class      GameFramework
    Circle c = new Circle(500, 200, 30);
 
 
-   BadCircle b = new BadCircle(500, 300, 30);
+   BadCircle b = new BadCircle(500, 300, 30);*/
 
 
    public void init()
@@ -61,11 +61,12 @@ public class      GameFramework
 
 
 
-      for(int i = 0; i < gg.length; i++)
+/*      for(int i = 0; i < gg.length; i++)
       {
          gg[i] = new GreenGuy(25*i +50, 100);
 
       }
+*/
 
 
       t.start();
@@ -99,10 +100,10 @@ public class      GameFramework
          {
             if(selectedGG[i])
             {
-               if (UP_pressed)   gg[i].moveUpBy(3);
-               if (DN_pressed)   gg[i].moveDownBy(3);
-               if (LT_pressed)   gg[i].moveLeftBy(5);
-               if (RT_pressed)   gg[i].moveRightBy(5);
+               if (UP_pressed)   //gg[i].moveUpBy(3);
+               if (DN_pressed)   //gg[i].moveDownBy(3);
+               if (LT_pressed)   //gg[i].moveLeftBy(5);
+               if (RT_pressed)   //gg[i].moveRightBy(5);
             }
          }
 

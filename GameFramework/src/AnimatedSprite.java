@@ -2,7 +2,13 @@ import java.awt.*;
 
 public class AnimatedSprite extends AARect
 {
-   int dir = 2;
+   final static int UP = 0;
+   final static int DN = 1;
+   final static int LT = 2;
+   final static int RT = 3;
+
+
+   int dir = LT;
 
 
    Animation[] animation;
@@ -26,9 +32,9 @@ public class AnimatedSprite extends AARect
    {
       //super.draw(g);
 
-      if(moving)  g.drawImage(animation[dir].getCurrentImage(), x, y, null);
+      if(moving)  g.drawImage(animation[dir].getCurrentImage(), x - Camera.x, y, null);
 
-      else        g.drawImage(animation[dir].getStaticImage(), x, y, null);
+      else        g.drawImage(animation[dir].getStaticImage(), x - Camera.x, y, null);
 
       moving = false;
    }
@@ -47,7 +53,7 @@ public class AnimatedSprite extends AARect
    {
       y -= dist;
 
-      dir = 0;
+      dir = UP;
 
       moving = true;
    }
@@ -56,7 +62,7 @@ public class AnimatedSprite extends AARect
    {
       y += dist;
 
-      dir = 1;
+      dir = DN;
 
       moving = true;
    }
@@ -65,7 +71,7 @@ public class AnimatedSprite extends AARect
    {
       x -= dist;
 
-      dir = 2;
+      dir = LT;
 
       moving = true;
    }
@@ -74,7 +80,7 @@ public class AnimatedSprite extends AARect
    {
       x += dist;
 
-      dir = 3;
+      dir = RT;
 
       moving = true;
    }
