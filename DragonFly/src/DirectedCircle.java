@@ -6,6 +6,12 @@ public class DirectedCircle
 	int y;
 
 	int r;
+	
+	
+	float vx; //velocty in x
+	float vy;//velovity in y
+	
+	float V; //total magnitude of <vx, vy>
 
 
 	int angle = 0;

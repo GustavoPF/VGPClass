@@ -38,7 +38,7 @@ public class testFramework extends Applet implements Runnable, KeyListener, Mous
 		
 		terrain = new Terrain(1500);
 		
-		for(int i = 0; i < 1500; i+=20){
+		for(int i = 0; i < 1500; i+=2){
 			
 			terrain.addLine(new Point(i,450+(int)(100*Lookup.sin[i%360])));
 
@@ -48,9 +48,14 @@ public class testFramework extends Applet implements Runnable, KeyListener, Mous
 			
 			if (dragon.x<1500 && dragon.y < 900){
 				
-				dragon.moveBy(0, 2);
+				//dragon.moveBy(0, 2);
+				dragon.moveBy((int)dragon.vx, (int)dragon.vy);
+				
+				dragon.update(.5f);
 				
 				dragon.handleCollisionWith(terrain);
+				
+				
 				
 			}else{ //level has ended
 				

@@ -6,8 +6,7 @@ public class Circle
    int y;
 
    int r;
-
-
+   
    int angle = 0;
 
 

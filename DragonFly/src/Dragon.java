@@ -2,7 +2,10 @@
 public class Dragon extends DirectedCircle {
 
 	public Dragon() {
-		super(10, 10, 15);
+		super(400, 10, 15);
+		
+		vx = 1;
+		
 		// TODO Auto-generated constructor stub
 	}
 	
@@ -15,20 +18,40 @@ public class Dragon extends DirectedCircle {
 	}
 */	
 	
+	public void update(float grav)
+	{
+		vy += grav;
+		
+		V = (float) Math.sqrt((vy * vy) + (vx*vx));
+		
+		this.angle = (int) Math.acos((vx)/V);
+		
+		if(vx < 1 && vx > -1)
+		{
+			vx = 1;
+		}
+	}
+	
 	private boolean hasCollidedWith(Terrain terrain) {
 		
 		System.out.println("Dragon at " + this.x + ", "+ this.y);
 		
 		for (int i = 0; i < terrain.end; i++ ){
 			
-			if (terrain.surface[i].x1 < this.x && terrain.surface[i].x2 > this.x /*&& this.y > terrain.surface[i].x2*/){
+			/*if (	terrain.surface[i].x1 < this.x && 
+					terrain.surface[i].x2 > this.x && 
+					this.y < terrain.surface[i].x2 &&
+					hasCollidedWith(terrain.surface[i])
+				)*/
+			if(		terrain.surface[i].x1 < this.x &&
+					terrain.surface[i].x2 > this.x &&
+					(terrain.surface[i].y1 + terrain.surface[i].y2) * .5f < (this.y + this.r))
+			{
+					
+				collidingSurface = terrain.surface[i];
+					
+				return true;
 				
-				if(hasCollidedWith(terrain.surface[i])){
-					
-					collidingSurface = terrain.surface[i];
-					
-					return true;
-				}
 
 			}
 						
@@ -69,19 +92,16 @@ public class Dragon extends DirectedCircle {
 	
 	public void handleCollisionWith(Terrain terrain)
 	{
-		if (hasCollidedWith(terrain)){
-			
-			//Line l = lineHasCollidedWith(terrain);
-			
-			if (collidingSurface != null){
+		if (hasCollidedWith(terrain) && collidingSurface != null)
+		{
 
 				double d = collidingSurface.distanceTo(x, y);
 
 				double dist = r - d;
 
-				moveBy((int)(dist * collidingSurface.xN + 10), (int)(dist * collidingSurface.yN) - 5);
-
-			}
+				vx += (float)(dist * collidingSurface.xN);
+				vy += (float)(dist * collidingSurface.yN);
+				y += (int)(dist * collidingSurface.yN);
 			
 		}
 	}
